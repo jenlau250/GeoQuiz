@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
-    private lateinit var nextButton: ImageButton
+    private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
-    private lateinit var prevButton: ImageButton
+//    private lateinit var prevButton: ImageButton
 
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
         nextButton = findViewById(R.id.next_button)
-        prevButton = findViewById(R.id.prev_button)
+//        prevButton = findViewById(R.id.prev_button)
 
         questionTextView = findViewById(R.id.question_text_view)
 
@@ -57,10 +57,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        prevButton.setOnClickListener {
-            currentIndex = (currentIndex - 1) % questionBank.size
-            updateQuestion()
-        }
 
         questionTextView.setOnClickListener{
             currentIndex = (currentIndex + 1) % questionBank.size
@@ -70,30 +66,30 @@ class MainActivity : AppCompatActivity() {
         updateQuestion()
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        Log.d(TAG, "onStart() called")
-//    }
-//
-//    override fun onResume() {
-//        super.onResume()
-//        Log.d(TAG, "onResume() called")
-//    }
-//
-//    override fun onPause() {
-//        super.onPause()
-//        Log.d(TAG, "onPause() called")
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        Log.d(TAG, "onStop() called")
-//    }
-//
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        Log.d(TAG, "onDestroy() called")
-//    }
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy() called")
+    }
 
 
     private fun updateQuestion() {
